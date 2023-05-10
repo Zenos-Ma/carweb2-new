@@ -1,7 +1,7 @@
 import "babel-polyfill";
 // 上面这句放在页面最顶上
 import Es6Promise from "es6-promise";
-Es6Promise.polyfill();
+Es6Promise.polyfill();   
 
 import Vue from "vue";
 
@@ -26,6 +26,7 @@ import "@/permission"; // permission control
 
 // import { mockXHR } from "../mock";
 // mockXHR();
+console.log('zhixing')
 
 import "@/utils/vueDirective";
 import "@/utils/utils";
