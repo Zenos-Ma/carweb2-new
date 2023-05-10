@@ -1,0 +1,224 @@
+@charset "UTF-8";
+@page {
+  margin: 0;
+}
+
+.sign-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sign-content .text {
+  width: 50%;
+}
+
+.seal-logo {
+  position: relative;
+}
+
+.seal-logo > img {
+  display: inline-block;
+  position: absolute;
+  left: 75px;
+  top: -62px;
+  width: 150px;
+  z-index: -1;
+}
+
+.ztinfo-insurance {
+  width: 720px;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.ztinfo-insurance * {
+  font-family: "宋体" !important;
+}
+
+.ztinfo-insurance .insurance-header {
+  height: 120px;
+  padding: 0 16px;
+}
+
+.ztinfo-insurance .insurance-header > img {
+  vertical-align: middle;
+  width: 100%;
+  height: 44px !important;
+}
+
+.ztinfo-insurance .insurance-header .top-title {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.ztinfo-insurance .insurance-header .top-title > span {
+  vertical-align: middle;
+  font-size: 24px;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.ztinfo-insurance .insurance-header .tab-item {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.ztinfo-insurance .insurance-header .tab-item span {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.ztinfo-insurance input[type="checkbox"] {
+  background-color: transparent;
+  border-radius: 0;
+  height: 14px;
+  width: 14px;
+  margin: 0 8px;
+  border: solid 1px black;
+}
+
+.ztinfo-insurance span.underline {
+  border-bottom: solid 1px black;
+  display: inline-block;
+  padding: 0 16px;
+  font-weight: bold;
+}
+
+.ztinfo-insurance .pciture-image {
+  position: absolute;
+}
+
+.ztinfo-insurance .insurance-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 16px;
+}
+
+.ztinfo-insurance .insurance-table tr > td:nth-child(odd) {
+  text-align: center;
+}
+
+.ztinfo-insurance .insurance-table tr > td:nth-child(even) {
+  padding: 0 8px;
+}
+
+.ztinfo-insurance .insurance-table tr > td[colspan] {
+  text-align: left;
+  padding: 0 8px;
+}
+
+.ztinfo-insurance .insurance-table .underline {
+  position: relative;
+}
+
+.ztinfo-insurance .insurance-table .underline ::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  height: 1px;
+}
+
+.ztinfo-insurance .insurance-table1 {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 16px;
+}
+
+.ztinfo-insurance .insurance-table1 tr > th {
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.ztinfo-insurance .insurance-table1 tr > td {
+  padding: 0 8px;
+}
+
+.ztinfo-insurance .insurance-table1 tr > td > span {
+  font-weight: bold;
+}
+
+.new-content {
+  margin-top: 80px;
+}
+
+.new-content > p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.insurance-table11 {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 16px;
+}
+
+.insurance-table11 tr > th {
+  text-align: center;
+}
+
+.insurance-table11 tr > td {
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.insurance-table11 tr > td > span {
+  font-weight: bold;
+}
+
+.seal-logo2 {
+  position: relative;
+}
+
+.seal-logo2 > img {
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: -60px;
+  width: 200px;
+  z-index: -1;
+}
+
+.tab-item1 {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.foot-content {
+  margin-top: 80px;
+}
+
+.foot-content p {
+  font-size: 16px;
+}
+/*# sourceMappingURL=export1.css.map */

@@ -1,0 +1,68 @@
+.ztree {
+  padding: 0.5rem;
+}
+.ztree * {
+  font-size: 1.2rem;
+}
+.ztree li {
+  line-height: 1.4rem;
+}
+.ztree li span {
+  line-height: 1.6rem;
+  margin-right: 0.2rem;
+}
+.ztree li a.curSelectedNode {
+  height: 1.6rem;
+}
+
+.ztree li span.button.ico_open,
+.ztree li span.button.ico_close {
+  background-size: 80%;
+  height: 2rem;
+  width: 2rem;
+  background-position: 50%;
+  background-image: url("../img/root.png");
+}
+
+.ztree li span.button.ico_docu {
+  background-size: 80%;
+  height: 2rem;
+  width: 2rem;
+  background-position: 50%;
+  background-image: url("../img/leaf.png");
+}
+
+.ztree li span.button.bottom_close,
+.ztree li span.button.center_close,
+.ztree li span.button.root_close {
+  background-size: 70%;
+  height: 2rem;
+  width: 2rem;
+  background-position: 50%;
+  background-image: url("../img/add.svg");
+}
+
+.ztree li span.button.bottom_open,
+.ztree li span.button.center_open,
+.ztree li span.button.root_open {
+  background-size: 60%;
+  height: 2rem;
+  width: 2rem;
+  background-position: 50%;
+  background-image: url("../img/minus.svg");
+}
+.ztree li span.button.switch {
+  height: 2rem;
+  width: 2rem;
+}
+
+.ztree li span.button.bottom_docu {
+  background: none;
+  border-bottom: dashed 1px gainsboro;
+  border-left: dashed 1px gainsboro;
+}
+.ztree li span.button.center_docu,
+.ztree li ul.line {
+  background: none;
+  border-left: dashed 1px gainsboro;
+}

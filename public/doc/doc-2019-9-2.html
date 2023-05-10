@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>爱车易平台开放接口文档</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}#write, body { height: auto; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write ol, #write p, #write ul { position: relative; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write, pre { white-space: pre-wrap; }
+.CodeMirror, .md-fences, table { text-align: left; }
+.md-reset, a:active, a:hover { outline: 0px; }
+.md-reset, .md-toc-item a { text-decoration: none; }
+.MathJax_SVG, .md-reset { float: none; direction: ltr; }
+:root { --bg-color:#ffffff; --text-color:#333333; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; bottom: 0px; top: 0px; left: 0px; right: 0px;  line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a.url { word-break: break-all; }
+.in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
+#write { margin: 0px auto; word-break: normal; word-wrap: break-word; padding-bottom: 70px; overflow-x: visible; }
+.first-line-indent #write p .md-line { text-indent: 0px; }
+.first-line-indent #write li, .first-line-indent #write p, .first-line-indent #write p .md-line:first-child { text-indent: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write > blockquote:first-child, #write > div:first-child, #write > ol:first-child, #write > p:first-child, #write > pre:first-child, #write > table:first-child, #write > ul:first-child { margin-top: 30px; }
+#write li > table:first-child { margin-top: -20px; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 10px; }
+p { -webkit-margin-before: 10px; -webkit-margin-after: 10px; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0px; -webkit-margin-after: 0px; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+#write > figure:first-child { margin-top: 16px; }
+figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; }
+.CodeMirror-line, .md-fences { break-inside: avoid; }
+table.md-table td { min-width: 80px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; margin-right: 4px; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+.md-fences { font-size: 9px; display: block; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+.md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
+.md-fences.mock-cm { white-space: pre-wrap; }
+.show-fences-line-number .md-fences { padding-left: 0px; }
+.show-fences-line-number .md-fences.mock-cm { padding-left: 4rem; }
+.footnotes { opacity: 0.8; font-size: 9px; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; vertical-align: top; background: 0px 0px; text-shadow: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; }
+.md-toc-inner, a img, img a { cursor: pointer; }
+li div { padding-top: 0px; }
+blockquote { margin: 10px 0px; }
+li .mathjax-block, li p { margin: 5px 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.1430px; white-space: normal; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+  p { orphans: 4; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0px; }
+}
+.footnote-line { white-space: pre-wrap; margin-top: 0.714em; font-size: 0.7em; }
+pre.md-meta-block { font-size: 8px; min-height: 8px; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > img:only-child { display: block; margin: auto; }
+.md-line > .md-image:only-child, p > .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+.mathjax-block:not(:empty)::after, .md-toc-content::after, .md-toc::after { display: none; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
+p + .mathjax-block { margin-top: -1.1430px; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.math { font-size: 10px; }
+.md-toc { min-height: 3.580px; position: relative; font-size: 9px; border-radius: 10px; }
+.MathJax_SVG, .mathjax-block .MathJax_SVG_Display { text-indent: 0px; max-width: none; max-height: none; min-height: 0px; }
+.md-toc-content { position: relative; margin-left: 0px;line-height:2.5em; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-inner:hover { }
+.md-toc-inner { display: inline-block; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 0em; }
+.md-toc-h3 .md-toc-inner { margin-left: 2em; }
+.md-toc-h4 .md-toc-inner { margin-left: 4em; }
+.md-toc-h5 .md-toc-inner { margin-left: 6em; }
+.md-toc-h6 .md-toc-inner { margin-left: 8em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 2.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 4em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 5.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 6em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height:inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, tt { font-family: var(--monospace); }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0px; position: relative; min-width: 100%; width: auto; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: monospace; }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; min-width: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg, [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 10px; }
+table tr th { border-bottom: 0px; }
+
+
+.CodeMirror, .CodeMirror-sizer { position: relative; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.fences-no-line-wrapping .md-fences .CodeMirror { margin-top: -30px; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; }
+.CodeMirror-lines { padding: 4px 0px; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-scroll, .cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta, .cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error, .cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.CodeMirror { height: auto; overflow: hidden; }
+.CodeMirror-scroll { margin-bottom: -30px; padding-bottom: 30px; height: 100%; outline: 0px; position: relative; box-sizing: content-box; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow-x: hidden; overflow-y: scroll; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow-y: hidden; overflow-x: scroll; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -3.20px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; border-right: none; width: 0px; visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.CodeMirror-selected { background: rgb(217, 217, 217); }
+.CodeMirror-focused .CodeMirror-selected { background: rgb(215, 212, 240); }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+.CodeMirror-lint-markers { width: 16px; }
+.CodeMirror-lint-tooltip { background-color: infobackground; border: 1px solid rgb(0, 0, 0); border-radius: 4px; color: infotext; font-family: var(--monospace); overflow: hidden; padding: 2px 5px; position: fixed; white-space: pre-wrap; z-index: 10000; max-width: 600px; opacity: 0; transition: opacity 0.4s; font-size: 0.8em; }
+.CodeMirror-lint-mark-error, .CodeMirror-lint-mark-warning { background-position: left bottom; background-repeat: repeat-x; }
+.CodeMirror-lint-mark-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAYAAAC09K7GAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sJDw4cOCW1/KIAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAHElEQVQI12NggIL/DAz/GdA5/xkY/qPKMDAwAADLZwf5rvm+LQAAAABJRU5ErkJggg=="); }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-marker-warning { background-position: center center; background-repeat: no-repeat; cursor: pointer; display: inline-block; height: 16px; width: 16px; vertical-align: middle; position: relative; }
+.CodeMirror-lint-message-error, .CodeMirror-lint-message-warning { padding-left: 18px; background-position: left top; background-repeat: no-repeat; }
+.CodeMirror-lint-marker-error, .CodeMirror-lint-message-error { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAHlBMVEW7AAC7AACxAAC7AAC7AAAAAAC4AAC5AAD///+7AAAUdclpAAAABnRSTlMXnORSiwCK0ZKSAAAATUlEQVR42mWPOQ7AQAgDuQLx/z8csYRmPRIFIwRGnosRrpamvkKi0FTIiMASR3hhKW+hAN6/tIWhu9PDWiTGNEkTtIOucA5Oyr9ckPgAWm0GPBog6v4AAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-warning, .CodeMirror-lint-message-warning { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAANlBMVEX/uwDvrwD/uwD/uwD/uwD/uwD/uwD/uwD/uwD6twD/uwAAAADurwD2tQD7uAD+ugAAAAD/uwDhmeTRAAAADHRSTlMJ8mN1EYcbmiixgACm7WbuAAAAVklEQVR42n3PUQqAIBBFUU1LLc3u/jdbOJoW1P08DA9Gba8+YWJ6gNJoNYIBzAA2chBth5kLmG9YUoG0NHAUwFXwO9LuBQL1giCQb8gC9Oro2vp5rncCIY8L8uEx5ZkAAAAASUVORK5CYII="); }
+.CodeMirror-lint-marker-multiple { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAMAAADzjKfhAAAACVBMVEUAAAAAAAC/v7914kyHAAAAAXRSTlMAQObYZgAAACNJREFUeNo1ioEJAAAIwmz/H90iFFSGJgFMe3gaLZ0od+9/AQZ0ADosbYraAAAAAElFTkSuQmCC"); background-repeat: no-repeat; background-position: right bottom; width: 100%; height: 100%; }
+
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: normal; src: local("Open Sans Regular"), url("./github/400.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: normal; src: local("Open Sans Italic"), url("./github/400i.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
+@font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
+html{font-size: 16px;}
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { width:calc(100% - 100px); margin: 0px auto; padding: 20px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+body > :first-child { margin-top: 0px !important; }
+body > :last-child { margin-bottom: 0px !important; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 10px; margin-bottom: 10px; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+body > h2:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child { margin-top: 0px; padding-top: 0px; }
+body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child { margin-top: 0px; padding-top: 0px; }
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 { margin-top: 0px; padding-top: 0px; }
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p { margin-top: 0px; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
+table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
+.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
+.md-task-list-item > input { margin-left: -1.3em; }
+@media screen and (min-width: 914px) {
+}
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { word-wrap: break-word; }
+}
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 10px; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+.md-tag { color: inherit; }
+.md-toc { margin-top: 20px; padding-bottom: 20px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+#md-notification::before { top: 10px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+
+
+
+
+
+ .typora-export p, .typora-export .footnote-line {white-space: normal;} 
+
+
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+  width: 8px;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+}
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+    <h1 style="position: fixed;left:0;top:0;width: 100%;text-align: center;margin:0;"><a name='header-n3434' class='md-header-anchor '></a>爱车易平台开放接口文档</h1>
+
+<div class='md-toc' mdtype='toc' style="margin:0;position: fixed;left:0;top:55px;width:285px;z-index: 9;background: white;height: calc(100% - 55px);padding: 0 8px;border-right:solid 1px rgb(238, 238, 238);border-radius:0;"><p class="md-toc-content"><span class="md-toc-item md-toc-h2" data-ref="n3437"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3437">1.接口基本信息</a></span><span class="md-toc-item md-toc-h2" data-ref="n3445"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3445">2.平台推送信息</a></span><span class="md-toc-item md-toc-h3" data-ref="n3446"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3446">2.1 推送请求</a></span><span class="md-toc-item md-toc-h3" data-ref="n3551"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3551">2.2 报警类型列表</a></span><span class="md-toc-item md-toc-h2" data-ref="n3621"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3621">3.第三方主动获取设备信息</a></span><span class="md-toc-item md-toc-h3" data-ref="n3622"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3622">签名算法：</a></span><span class="md-toc-item md-toc-h3" data-ref="n3628"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3628">设备状态说明：</a></span><span class="md-toc-item md-toc-h3" data-ref="n3645"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3645">定位类型说明:</a></span><span class="md-toc-item md-toc-h3" data-ref="n3653"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3653">3.1 获取账户下所有设备基本信息</a></span><span class="md-toc-item md-toc-h3" data-ref="n3728"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3728">3.2 获取账户下指定设备基本信息</a></span><span class="md-toc-item md-toc-h3" data-ref="n3801"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3801">3.3 获取账户下所有设备位置状态</a></span><span class="md-toc-item md-toc-h3" data-ref="n3900"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n3900">3.4 获取账户下选定设备位置状态</a></span><span class="md-toc-item md-toc-h3" data-ref="n4001"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n4001">3.5 获取设备位置回放</a></span><span class="md-toc-item md-toc-h2" data-ref="n4086"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n4086">4.第三方下发指令给设备</a></span><span class="md-toc-item md-toc-h2" data-ref="n4150"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n4150">5.第三方获取设备里程信息</a></span><span class="md-toc-item md-toc-h3" data-ref="n4151"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n4151">5.1 获取指定设备的里程信息</a></span></p></div>
+<div style="position:fixed;left:285px;top:55px;height:calc(100% - 55px);width:calc(100% - 285px);overflow-x:hidden;overflow-y:auto;padding:8px;margin:0;max-width: calc(100% - 285px);">
+<div  id='write'  class = 'is-node' ><h2><a name='header-n3437' class='md-header-anchor '></a>1.接口基本信息</h2><p><strong>接口前缀：</strong> URL_PREFIX = <a href='http://plat.basegps.com:8088/chesafeutil' target='_blank' class='url'>http://plat.basegps.com:8088/chesafeutil</a></p><p><strong>通用签名算法:</strong></p><pre class="md-fences md-end-block" lang="java" style="break-inside: unset;"> <div class="CodeMirror cm-s-inner CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 4px;"></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 30px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* 功能：计算字符串的MD5摘要并转化为大写HEX字符串</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* @param plainStr  原始文本</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* @return  MD5信息摘要</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">*/</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">String</span> <span class="cm-def">sign</span>(<span class="cm-variable-3">String</span> <span class="cm-variable">plainStr</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable">plainStr</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">logger</span>.<span class="cm-variable">warn</span>(<span class="cm-string">"原始文本为null，已重置为空字符串。"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">plainStr</span> <span class="cm-operator">=</span> <span class="cm-string">""</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">try</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">MessageDigest</span> <span class="cm-variable">messageDigest</span> <span class="cm-operator">=</span> <span class="cm-variable">MessageDigest</span>.<span class="cm-variable">getInstance</span>(<span class="cm-string">"MD5"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">byte</span>[] <span class="cm-variable">byteDigest</span> <span class="cm-operator">=</span> <span class="cm-variable">messageDigest</span>.<span class="cm-variable">digest</span>(<span class="cm-variable">plainStr</span>.<span class="cm-variable">getBytes</span>(<span class="cm-string">"UTF-8"</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">bytesToHex</span>(<span class="cm-variable">byteDigest</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">catch</span> (<span class="cm-variable">Exception</span> <span class="cm-variable">e</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">logger</span>.<span class="cm-variable">error</span>(<span class="cm-variable">e</span>.<span class="cm-variable">toString</span>(), <span class="cm-variable">e</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-atom">null</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">/**</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* 功能：将字节数组转化为大写HEX字符串</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* @param byteArray  原始字节数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">* @return  大写HEX字符串</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; <span class="cm-comment">*/</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-variable-3">String</span> <span class="cm-def">bytesToHex</span>(<span class="cm-variable-3">byte</span>[] <span class="cm-variable">byteArray</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">StringBuffer</span> <span class="cm-variable">stringBuffer</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable-3">StringBuffer</span>(<span class="cm-variable">byteArray</span>.<span class="cm-variable">length</span> <span class="cm-operator">*</span> <span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span>(<span class="cm-variable-3">int</span> <span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">0</span>, <span class="cm-variable">count</span><span class="cm-operator">=</span><span class="cm-variable">byteArray</span>.<span class="cm-variable">length</span>; <span class="cm-variable">i</span><span class="cm-operator">&lt;</span><span class="cm-variable">count</span>; <span class="cm-variable">i</span><span class="cm-operator">++</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-3">String</span> <span class="cm-variable">tem</span> <span class="cm-operator">=</span> <span class="cm-variable-3">Integer</span>.<span class="cm-variable">toHexString</span>(<span class="cm-variable">byteArray</span>[<span class="cm-variable">i</span>] <span class="cm-operator">&amp;</span> <span class="cm-number">0xFF</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable">tem</span>.<span class="cm-variable">length</span>() <span class="cm-operator">==</span> <span class="cm-number">1</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">stringBuffer</span>.<span class="cm-variable">append</span>(<span class="cm-string">"0"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">stringBuffer</span>.<span class="cm-variable">append</span>(<span class="cm-variable">tem</span>.<span class="cm-variable">toUpperCase</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">stringBuffer</span>.<span class="cm-variable">toString</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; border-bottom: 0px solid transparent; top: 928px;"></div><div class="CodeMirror-gutters" style="display: none; height: 958px;"></div></div></div></pre><h2><a name='header-n3445' class='md-header-anchor '></a>2.平台推送信息</h2><h3><a name='header-n3446' class='md-header-anchor '></a>2.1 推送请求</h3><p><strong>传入参数：数据格式-&gt;json</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>auth</td><td>json</td><td>授权用户信息</td></tr><tr><td>auth.userName</td><td>String</td><td>用户名，如“test1”</td></tr><tr><td>auth.requestTime</td><td>String</td><td>请求时间戳（精确到毫秒）</td></tr><tr><td>auth.authSignature</td><td>String</td><td>以 username-password-requestTime 计算出的签名值,注：保留属性之间的 “-”</td></tr><tr><td>dataList</td><td>JsonArray</td><td>设备信息列表</td></tr><tr><td>dataList[i].c</td><td>String</td><td>15位设备IMEI号，如 “123451234500001”</td></tr><tr><td>dataList[i].speed</td><td>String</td><td>速度，如“26”</td></tr><tr><td>dataList[i].course</td><td>String</td><td>行驶方向（0-360）</td></tr><tr><td>dataList[i].time</td><td>String</td><td>时间，如“2017-08-10 12:30:50”</td></tr><tr><td>dataList[i].battery</td><td>String</td><td>电量，如“90%”,“-1%”表示未采集到电量</td></tr><tr><td>dataList[i].voltage</td><td>String</td><td>电压，如“3.66”</td></tr><tr><td>dataList[i].lon</td><td>String</td><td>原始坐标经度，如“103.33”（需要转换为对应地图的经度）</td></tr><tr><td>dataList[i].lat</td><td>String</td><td>原始坐标维度，如“104.44”（需要转换为对应地图的纬度）</td></tr><tr><td>dataList[i].is_cached_point</td><td>String</td><td>是否为补传点，如“false”</td></tr><tr><td>dataList[i].loc_type</td><td>String</td><td>定位类型，0为GPS定位，1为基站定位</td></tr><tr><td>dataList[i].is_alert</td><td>String</td><td>是否为报警定位点，如“true”</td></tr><tr><td>dataList[i].alert_type</td><td>String</td><td>报警类型号，具体见附注 (“-1”是非报警点的默认值)</td></tr><tr><td>dataList[i].acc</td><td>String</td><td>车辆ACC状态，0为关闭，1为开启</td></tr></tbody></table></figure><p><strong>返回结果:数据格式-&gt;json</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>code</td><td>int</td><td>0为推送成功，其他为推送失败</td></tr><tr><td>message</td><td>String</td><td>结果说明，如“success”</td></tr></tbody></table></figure><p><strong>格式说明：</strong></p><p>1.编码格式: UTF-8</p><p>2.Content-Type: application/json</p><p>3.数据以http形式从爱车易平台推送到目标URL接口</p><h3><a name='header-n3551' class='md-header-anchor '></a>2.2 报警类型列表</h3><figure><table><thead><tr><th>报警类型id(type_id)</th><th>报警类型名称(type_name)</th></tr></thead><tbody><tr><td>1</td><td>正常</td></tr><tr><td>2</td><td>震动报警</td></tr><tr><td>3</td><td>断电报警</td></tr><tr><td>4</td><td>低电报警</td></tr><tr><td>5</td><td>SOS求救</td></tr><tr><td>6</td><td>超速报警</td></tr><tr><td>7</td><td>出围栏报警</td></tr><tr><td>8</td><td>位移报警</td></tr><tr><td>9</td><td>GPS天线短路报警</td></tr><tr><td>10</td><td>GPS天线开路报警</td></tr><tr><td>11</td><td>进入盲区报警</td></tr><tr><td>12</td><td>离开盲区报警</td></tr><tr><td>13</td><td>外电低电报警</td></tr><tr><td>14</td><td>外电低电保护报警</td></tr><tr><td>15</td><td>启动报警</td></tr><tr><td>16</td><td>开门报警</td></tr><tr><td>17</td><td>车门关闭报警</td></tr><tr><td>18</td><td>流量卡即将到期，请联系经销商充值流量</td></tr><tr><td>19</td><td>流量卡到期报警</td></tr><tr><td>20</td><td>开关报警</td></tr><tr><td>21</td><td>感光报警</td></tr></tbody></table></figure><h2><a name='header-n3621' class='md-header-anchor '></a>3.第三方主动获取设备信息</h2><h3><a name='header-n3622' class='md-header-anchor '></a>签名算法：</h3><p>1.生成字符串s1=userName+timestamp+password，其中password为双方持有的密钥，不公开；
+</p><p>2.使用MD5加密s1，并转换为大写的HEX字符串</p><p>3.签名兼容该账户下子用户，但新增的用户需要在第二天才能通过签名获得开放权限</p><h3><a name='header-n3628' class='md-header-anchor '></a>设备状态说明：</h3><ul><li>0=未启用</li><li>1=行驶</li><li>2=静止</li><li>3=离线</li><li>4=过期</li></ul><h3><a name='header-n3645' class='md-header-anchor '></a>定位类型说明:</h3><ul><li>0=gps</li><li>1=基站</li></ul><h3><a name='header-n3653' class='md-header-anchor '></a>3.1 获取账户下所有设备基本信息</h3><p><strong>请求地址：</strong>${URL_PREFIX}/dinfo/getByUserName.do</p><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>sign</td><td>String</td><td>签名</td></tr></tbody></table></figure><strong>返回参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>data</td><td>JsonArray</td><td>设备信息列表</td></tr><tr><td>data[i].deviceImei</td><td>String</td><td>设备号</td></tr><tr><td>data[i].deviceType</td><td>String</td><td>设备类型</td></tr><tr><td>data[i].enableDate</td><td>String</td><td>启用日期(格式为 “yyyy-MM-dd”, 如果未启用则为空字符串)</td></tr><tr><td>data[i].flowExpire</td><td>String</td><td>流量到期时间（格式为“yyyy-MM-dd”, 如果非供应商卡则为空字符串）</td></tr><tr><td>data[i].plate</td><td>String</td><td>车牌号车牌号-------------------------------可能为null</td></tr><tr><td>data[i].status</td><td>int</td><td>设备状态</td></tr><tr><td>data[i].telNum</td><td>String</td><td>sim卡ICCID号码-------------------------------可能为null</td></tr></tbody></table></figure><h3><a name='header-n3728' class='md-header-anchor '></a>3.2 获取账户下指定设备基本信息</h3><p><strong>请求地址:</strong>${URL_PREFIX}/dinfo/getByDeviceImei.do</p><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>sign</td><td>String</td><td>签名</td></tr><tr><td>deviceImei</td><td>String</td><td>设备imei号，若多选，请重复该参数(数组接收)</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>data</td><td>JsonArray</td><td>设备信息列表</td></tr><tr><td>data[i].deviceImei</td><td>String</td><td>设备号</td></tr><tr><td>data[i].deviceType</td><td>String</td><td>设备类型</td></tr><tr><td>data[i].enableDate</td><td>String</td><td>启用日期(格式为 “yyyy-MM-dd”, 如果未启用则为空字符串)</td></tr><tr><td>data[i].flowExpire</td><td>String</td><td>流量到期时间（格式为“yyyy-MM-dd”, 如果非供应商卡则为空字符串）</td></tr><tr><td>data[i].plate</td><td>String</td><td>车牌号车牌号-------------------------------可能为null</td></tr><tr><td>data[i].status</td><td>int</td><td>设备状态</td></tr><tr><td>data[i].telNum</td><td>String</td><td>sim卡ICCID号码-------------------------------可能为null</td></tr></tbody></table></figure><h3><a name='header-n3801' class='md-header-anchor '></a>3.3 获取账户下所有设备位置状态</h3><p><strong>请求地址:</strong>${URL_PREFIX}/dpos/getByUserName.do</p><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>sign</td><td>String</td><td>签名</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>data</td><td>JsonArray</td><td>设备位置信息列表</td></tr><tr><td>data[i].deviceImei</td><td>String</td><td>设备号</td></tr><tr><td>data[i].deviceType</td><td>String</td><td>设备类型</td></tr><tr><td>data[i].enableDate</td><td>String</td><td>启用日期(格式为 “yyyy-MM-dd”, 如果未启用则为空字符串)</td></tr><tr><td>data[i].flowExpire</td><td>String</td><td>流量到期时间（格式为“yyyy-MM-dd”, 如果非供应商卡则为空字符串）</td></tr><tr><td>data[i].status</td><td>int</td><td>设备状态</td></tr><tr><td>data[i].speed</td><td>double</td><td>速度------------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].course</td><td>int</td><td>航向角----------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].lo</td><td>double</td><td>经度，大于0为东经------------------------为0.0时代表设备未上传过该信息</td></tr><tr><td>data[i].la</td><td>double</td><td>纬度，大于0为北纬------------------------为0.0时代表设备未上传过该信息</td></tr><tr><td>data[i].locTime</td><td>long</td><td>UTC，定位时间</td></tr><tr><td>data[i].locType</td><td>int</td><td>定位类型--------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].sigTime</td><td>long</td><td>UTC，信号时间---------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].voltage</td><td>double</td><td>电压------------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].electricity</td><td>int</td><td>电量------------------------------------为null时代表设备未上传该信息</td></tr></tbody></table></figure><h3><a name='header-n3900' class='md-header-anchor '></a>3.4 获取账户下选定设备位置状态</h3><p><strong>请求地址：</strong>${URL_PREFIX}/dpos/getByDeviceImei.do</p><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>sign</td><td>String</td><td>签名</td></tr><tr><td>deviceImei</td><td>String</td><td>设备imei号，若多选，请重复该参数(数组接收)</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>data</td><td>JsonArray</td><td>设备位置信息列表</td></tr><tr><td>data[i].deviceImei</td><td>String</td><td>设备号</td></tr><tr><td>data[i].deviceType</td><td>String</td><td>设备类型</td></tr><tr><td>data[i].enableDate</td><td>String</td><td>启用日期(格式为 “yyyy-MM-dd”, 如果未启用则为空字符串)</td></tr><tr><td>data[i].flowExpire</td><td>String</td><td>流量到期时间（格式为“yyyy-MM-dd”, 如果非供应商卡则为空字符串）</td></tr><tr><td>data[i].status</td><td>int</td><td>设备状态</td></tr><tr><td>data[i].speed</td><td>double</td><td>速度------------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].course</td><td>int</td><td>航向角----------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].lo</td><td>double</td><td>经度，大于0为东经------------------------为0.0时代表设备未上传过该信息</td></tr><tr><td>data[i].la</td><td>double</td><td>纬度，大于0为北纬------------------------为0.0时代表设备未上传过该信息</td></tr><tr><td>data[i].locTime</td><td>long</td><td>UTC，定位时间</td></tr><tr><td>data[i].locType</td><td>int</td><td>定位类型--------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].sigTime</td><td>long</td><td>UTC，信号时间---------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].voltage</td><td>double</td><td>电压------------------------------------为null时代表设备未上传过该信息</td></tr><tr><td>data[i].electricity</td><td>int</td><td>电量------------------------------------为null时代表设备未上传该信息</td></tr></tbody></table></figure><h3><a name='header-n4001' class='md-header-anchor '></a>3.5 获取设备位置回放</h3><p><strong>请求地址：</strong>${URL_PREFIX}/dpos/getHist.do</p><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>sign</td><td>String</td><td>签名</td></tr><tr><td>deviceImei</td><td>String</td><td>设备imei号，若多选，请重复该参数(数组接收)</td></tr><tr><td>from</td><td>long</td><td>UTC，回放开始时间</td></tr><tr><td>to</td><td>long</td><td>UTC，回放结束时间，跨度限制在30天内</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>data</td><td>JsonArray</td><td>设备信息列表</td></tr><tr><td>data[i].deviceImei</td><td>String</td><td>设备号</td></tr><tr><td>data[i].speed</td><td>double</td><td>设备速度</td></tr><tr><td>data[i].course</td><td>int</td><td>航向角</td></tr><tr><td>data[i].lo</td><td>double</td><td>经度，大于0为东经</td></tr><tr><td>data[i].la</td><td>double</td><td>纬度，大于0为北纬</td></tr><tr><td>data[i].locTime</td><td>long</td><td>UTC，定位时间</td></tr><tr><td>data[i].locType</td><td>int</td><td>定位类型</td></tr></tbody></table></figure><p><strong>注意：</strong>返回参数中存在查询成功但data为空数组的情况（实际的确没有对应时间段的轨迹数据）</p><h2><a name='header-n4086' class='md-header-anchor '></a>4.第三方下发指令给设备</h2><p><strong>请求设置：</strong></p><figure><table><thead><tr><th>设置参数</th><th>设置值</th></tr></thead><tbody><tr><td>Method</td><td>POST</td></tr><tr><td>Content-Type</td><td>application/json</td></tr><tr><td>URL</td><td>${URL_PREFIX}/cmd/send.do</td></tr></tbody></table></figure><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>signature</td><td>String</td><td>签名</td></tr><tr><td>deviceImei</td><td>String</td><td>设备imei号，若多选，请重复该参数(数组接收)</td></tr><tr><td>command</td><td>String</td><td>指令内容</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>result</td><td>String</td><td>指令执行结果（查询失败，默认返回空字符串 &quot;&quot;）</td></tr></tbody></table></figure><h2><a name='header-n4150' class='md-header-anchor '></a>5.第三方获取设备里程信息</h2><h3><a name='header-n4151' class='md-header-anchor '></a>5.1 获取指定设备的里程信息（支持单设备和批量设备）</h3><p><strong>请求设置：</strong></p><figure><table><thead><tr><th>设置参数</th><th>设置值</th></tr></thead><tbody><tr><td>Method</td><td>POST</td></tr><tr><td>Content-Type</td><td>application/json</td></tr><tr><td>URL</td><td>${URL_PREFIX}/dinfo/getMileage.do</td></tr></tbody></table></figure><p><strong>请求参数：</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>userName</td><td>String</td><td>用户登录名</td></tr><tr><td>timestamp</td><td>long</td><td>时间戳（取到毫秒）</td></tr><tr><td>signature</td><td>String</td><td>签名</td></tr><tr><td>deviceImei</td><td>String</td><td>设备imei号，若多选，请重复该参数(数组接收)</td></tr><tr><td>from</td><td>long</td><td>UTC，查询起始时间（如果为空则默认查今日里程）</td></tr><tr><td>to</td><td>long</td><td>UTC，查询结束时间，跨度限制在30天内（如果为空则默认查今日里程）</td></tr></tbody></table></figure><p><strong>返回参数:</strong></p><figure><table><thead><tr><th>属性名</th><th>类型</th><th>描述</th></tr></thead><tbody><tr><td>retCode</td><td>int</td><td>执行状态（1查询成功，-1查询失败）</td></tr><tr><td>retMsg</td><td>String</td><td>执行状态描述（retCode对应描述）</td></tr><tr><td>retData</td><td>JsonArray</td><td>设备里程列表</td></tr><tr><td>retData[i].deviceImei</td><td>string</td><td>设备号</td></tr><tr><td>retData[i].mileage</td><td>double</td><td>里程数</td></tr></tbody></table></figure><p><strong>注意：</strong>存在查询成功但retData为空数组的情况（如果对应时间段确实没有该设备的里程数据）</p></div>
+<footer style="text-align:center;" >2019 广州正唐信息科技有限公司 <a data-v-790aae9c="" href="http://www.beian.miit.gov.cn" target="_blank" style="color: black; text-decoration: none;">京ICP备17155539号</a></footer>
+</div>
+
+</body>
+</html>

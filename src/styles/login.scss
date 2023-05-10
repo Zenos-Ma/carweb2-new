@@ -1,0 +1,411 @@
+$imgPath: "~@/assets/img/"; //scss图片路径
+.switch-box {
+  width: 24rem;
+  line-height: 3.2rem;
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: gray;
+  position: absolute;
+  right: 15%;
+}
+// login2
+.box-content {
+  width: 100%;
+  min-width: 1024px;
+  min-height: 768px;
+  height: 100%;
+  background: url("~@/assets/img/login/bg.jpg") no-repeat center / cover;
+  /* background-size: 100% 100%; */
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+.box-content .left {
+  position: relative;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  flex-direction: column;
+    color: #fff;
+    text-align: left;
+    line-height: 20px;
+}
+.box-content .right {
+  width: 305px;
+  margin-right: -150px;
+  /* background-image: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%); */
+}
+.box-content .switch #save_cookie {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.box-content .button_blue {
+  display: inline-block;
+  float: left;
+  height: 41px;
+  width: 100%;
+  // border-radius: 30px;
+  // background: #3f47f4;
+  // border-bottom: 3px solid #343478;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background: #61615f;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+  font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+  margin: 0px;
+}
+.box-content .button_blue:hover {
+  background: #849ecb;
+  // border-bottom: 3px solid #343478;
+  border-bottom: none;
+  color: #fff;
+  text-decoration: none;
+}
+.box-content .web_qr_login .inputOuter {
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #4b4a48;
+  // border-radius: 30px;
+  // background-color: #fff;
+  display: flex;
+  align-items: center;
+  background-color: #4b4a48;
+  position: relative;
+}
+.box-content .web_qr_login .inputOuter input {
+  padding: 0 12px;
+  height: 40px;
+  line-height: 40px;
+  // color: #0b0c10;
+  // border-radius: 30px;
+  color: #fff;
+  background: #4b4a48;
+  margin-top: 0;
+  border-bottom: none;
+  text-indent: 0;
+
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 0 50px 0 20px;
+}
+
+.web_qr_login .inputOuter input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff;
+  background: #4b4a48;
+}
+.web_qr_login .inputOuter input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  background: #4b4a48;
+}
+.web_qr_login .inputOuter input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  background: #4b4a48;
+}
+.web_qr_login .inputOuter input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff;
+  background: #4b4a48;
+}
+.web_qr_login .inputOuter input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  color: #fff;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.web_qr_login {
+  .el-checkbox__input.is-checked .el-checkbox__inner,
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #606a74;
+    border-color: #828e9b;
+  }
+}
+//
+.box-content .right .login {
+  margin: 27vh 0%;
+  padding: 50px 30px;
+  background: rgba(52, 78, 120, 0.3);
+  // border-radius: 6px;
+  // border: 1px solid rgba(255, 255, 255, 0.3);
+  // margin-left: 5px;
+  width: 344px;
+  position: relative;
+  background: #1d1c1a;
+}
+
+.box-content .switch {
+  margin-left: 20px;
+}
+.box-content .right .web_login .active {
+  border: 1px solid #2084ec;
+}
+.logo-domilink {
+  border-radius: 10px;
+}
+.switch1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.main-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.icon-er {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 360px;
+}
+.icon-er .main-qr {
+  // border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 16px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.main-qr {
+  background: url($imgPath+"/login/lang_icon_choose.png") no-repeat center/cover;
+  background-size: 100% 100%;
+}
+.icon-er .main-qr i {
+  font-size: 16px;
+  vertical-align: middle;
+  color: #fff;
+}
+.icon-er .main-qr span {
+  vertical-align: middle;
+  color: #fff;
+  padding-left: 5px;
+}
+.qr-box {
+  width: 125px;
+  /* height:200px; */
+  margin-top: 10px;
+  position: absolute;
+  display: none;
+  background: #fff url(~@/assets/img/login/bg_home_ui.png) no-repeat 0 -60px;
+  cursor: crosshair;
+  padding: 12px 13px 13px 12px;
+  left: 0;
+}
+
+.main-qr:nth-of-type(3) .qr-box {
+  left: unset;
+  right: 0;
+}
+
+.icon-er .qr-box img {
+  display: block;
+  width: 100%;
+}
+.iphone-qr:hover,
+.android-qr:hover,
+.wechat-qr:hover {
+  // background: rgba(255, 255, 255, 0.2);
+}
+
+.inputOuter .iconfont {
+  // color: #757575;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+}
+.back-cont-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.3);
+  line-height: 80px;
+}
+.back-cont-head p {
+  color: #fff;
+  padding-left: 50px;
+  font-size: 14px;
+  margin: 0;
+}
+.bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #1a181b;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  width: 100%;
+  height: 80px;
+  // line-height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: translate(-50%, 10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.web_login {
+  width: 90%;
+  position: relative;
+  margin: 20px auto 20px auto;
+  padding-bottom: 20px;
+}
+.icon-flag {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 18px;
+  width: 24px;
+  display: inline-block;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+.lang-select-type:hover .lang-select-cur::after {
+  background-position: -16px -50px;
+}
+.lang-select-cur {
+  border-radius: 2px;
+  padding: 10px 20px;
+  width: 300px;
+  text-align: left;
+  position: relative;
+  &::after {
+    content: " ";
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    height: 6px;
+    width: 9px;
+    display: block;
+    background: url(~@/assets/img/login/bg_home_ui.png) no-repeat -16px -40px;
+  }
+  background: url($imgPath+"/login/login_lang_change.png") no-repeat center/cover;
+  background-size: 100% 100%;
+}
+
+.zh-cn {
+  background-image: url(~@/assets/img/login/zh-cn.svg);
+}
+
+.en-us {
+  background-image: url(~@/assets/img/login/en-us.svg);
+}
+.jap-an {
+  background-image: url(~@/assets/img/login/japan.svg);
+}
+
+.lang-select-type {
+  position: relative;
+  padding-left: 200px;
+  margin-top: -8px;
+}
+
+.lang-select-type.hover {
+  .lang-box {
+    display: block;
+  }
+}
+
+.lang-box {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  bottom: 60px;
+  right: -1px;
+  width: 222px;
+  padding: 10px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  a {
+    margin: 1rem;
+    &:hover {
+      color: #f5a403;
+    }
+  }
+}
+
+/* 账号密码输入 start */
+.web_login .inputOuter input {
+  display: block;
+  width: 100%;
+  height: 42px;
+  margin-top: 10px;
+  text-indent: 36px;
+  line-height: 42px;
+  *background-color: #fcfcfc;
+  color: white;
+
+  border: none;
+  border-bottom: 1px solid #ddd;
+
+  font-size: 14px;
+  font-family: "Hiragino Sans GB", "Microsoft Yahei";
+  background: 10px center no-repeat;
+}
+.web_login .tips {
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 3;
+  line-height: 42px;
+  color: white;
+  font-size: 15px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  height: 42px;
+}
+
+.web_login .tips a {
+  display: inline-block;
+  float: right;
+  color: #0d5cac;
+  text-decoration: none;
+}
+.web_login .tips .switch {
+  float: left;
+  .el-checkbox__input.is-checked + .el-checkbox__label {
+    color: #fff;
+  }
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media screen and (max-height: 768px) {
+  .box-content .right .login {
+    margin: 23vh 0%;
+    padding: 30px 30px;
+  }
+  .qr-box {
+    width: 90px;
+  }
+  .version-tips {
+    top: -38px !important;
+  }
+}
