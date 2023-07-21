@@ -16,7 +16,7 @@ console.log(process.env.VUE_APP_BASE_API);
 
 module.exports = {
   transpileDependencies: process.env.NODE_ENV === "development" ? ["*"] : [],
-  transpileDependencies: process.env.NODE_ENV === "production" ? ["*"] : [],
+  // transpileDependencies: process.env.NODE_ENV === "production" ? ["*"] : [],
 
   /**
    */
@@ -91,9 +91,9 @@ module.exports = {
     ]
   },
   chainWebpack(config) {
-    config.entry('main').add('babel-polyfill');
-    config.entry.app = ['babel-polyfill', './src/main.js'];
-    // 
+    config.entry("main").add("babel-polyfill");
+    config.entry.app = ["babel-polyfill", "./src/main.js"];
+    //
     config.plugins.delete("preload"); // TODO: need test
     config.plugins.delete("prefetch"); // TODO: need test
     config.module.rule("vue").uses.store.delete("cache-loader");

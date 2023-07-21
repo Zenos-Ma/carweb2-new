@@ -12,7 +12,6 @@
 /* fade */
 .fade-enter-active,
 .fade-leave-active {
-  -webkit-transition: opacity 0.28s;
   transition: opacity 0.28s;
 }
 
@@ -24,39 +23,33 @@
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .fade-transform-enter {
   opacity: 0;
-  -webkit-transform: translateX(-30px);
-          transform: translateX(-30px);
+  transform: translateX(-30px);
 }
 
 .fade-transform-leave-to {
   opacity: 0;
-  -webkit-transform: translateX(30px);
-          transform: translateX(30px);
+  transform: translateX(30px);
 }
 
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .breadcrumb-enter,
 .breadcrumb-leave-active {
   opacity: 0;
-  -webkit-transform: translateX(20px);
-          transform: translateX(20px);
+  transform: translateX(20px);
 }
 
 .breadcrumb-move {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .breadcrumb-leave-active {
@@ -68,7 +61,7 @@
   font-weight: 400 !important;
 }
 
-.el-upload input[type="file"] {
+.el-upload input[type=file] {
   display: none !important;
 }
 
@@ -77,8 +70,7 @@
 }
 
 .el-dialog {
-  -webkit-transform: none;
-          transform: none;
+  transform: none;
   left: 0;
   position: relative;
   margin: 0 auto;
@@ -87,7 +79,6 @@
 .upload-container .el-upload {
   width: 100%;
 }
-
 .upload-container .el-upload .el-upload-dragger {
   width: 100%;
   height: 200px;
@@ -98,20 +89,16 @@
 }
 
 .el-range-separator {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 #app .main-container {
   min-height: 100%;
-  -webkit-transition: margin-left .28s;
-  transition: margin-left .28s;
+  transition: margin-left 0.28s;
   margin-left: 280px;
   position: relative;
 }
-
 #app .sidebar-container {
-  -webkit-transition: width 0.28s;
   transition: width 0.28s;
   width: 280px !important;
   background-color: #060f1e;
@@ -123,105 +110,75 @@
   z-index: 999;
   overflow: hidden;
 }
-
 #app .sidebar-container .horizontal-collapse-transition {
-  -webkit-transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
   transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
 }
-
 #app .sidebar-container .scrollbar-wrapper {
   overflow-x: hidden !important;
   height: calc(100% - 280px);
 }
-
 #app .sidebar-container .el-scrollbar__bar.is-vertical {
   right: 0px;
 }
-
 #app .sidebar-container .el-scrollbar {
   height: 100%;
 }
-
 #app .sidebar-container.has-logo .el-scrollbar {
   height: calc(100% - 50px);
 }
-
 #app .sidebar-container .is-horizontal {
   display: none;
 }
-
 #app .sidebar-container a {
   display: inline-block;
   width: 100%;
 }
-
 #app .sidebar-container .svg-icon {
   margin-right: 16px;
 }
-
 #app .sidebar-container .el-menu {
   border: none;
   height: 100%;
   width: 100% !important;
 }
-
 #app .sidebar-container .submenu-title-noDropdown:hover,
 #app .sidebar-container .el-submenu__title:hover {
   background-color: #263445 !important;
 }
-
 #app .sidebar-container .is-active > .el-submenu__title {
   color: #f4f4f5 !important;
 }
-
-#app .sidebar-container .nest-menu .el-submenu > .el-submenu__title,
-#app .sidebar-container .el-submenu .el-menu-item {
+#app .sidebar-container .nest-menu .el-submenu > .el-submenu__title, #app .sidebar-container .el-submenu .el-menu-item {
   min-width: 280px !important;
-  background-color: #1f2d3d !important;
 }
-
-#app .sidebar-container .nest-menu .el-submenu > .el-submenu__title:hover,
-#app .sidebar-container .el-submenu .el-menu-item:hover {
-  background-color: #001528 !important;
-}
-
 #app .hideSidebar .sidebar-container {
   width: 54px !important;
 }
-
 #app .hideSidebar .main-container {
   margin-left: 54px;
 }
-
 #app .hideSidebar .submenu-title-noDropdown {
   padding: 0 !important;
   position: relative;
 }
-
 #app .hideSidebar .submenu-title-noDropdown .el-tooltip {
   padding: 0 !important;
 }
-
 #app .hideSidebar .submenu-title-noDropdown .el-tooltip .svg-icon {
   margin-left: 20px;
 }
-
 #app .hideSidebar .el-submenu {
   overflow: hidden;
 }
-
 #app .hideSidebar .el-submenu > .el-submenu__title {
   padding: 0 !important;
 }
-
 #app .hideSidebar .el-submenu > .el-submenu__title .svg-icon {
   margin-left: 20px;
 }
-
 #app .hideSidebar .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
   display: none;
 }
-
 #app .hideSidebar .el-menu--collapse .el-submenu > .el-submenu__title > span {
   height: 0;
   width: 0;
@@ -229,59 +186,43 @@
   visibility: hidden;
   display: inline-block;
 }
-
 #app .el-menu--collapse .el-menu .el-submenu {
   min-width: 280px !important;
 }
-
 #app .mobile .main-container {
   margin-left: 0px;
 }
-
 #app .mobile .sidebar-container {
-  -webkit-transition: -webkit-transform .28s;
-  transition: -webkit-transform .28s;
-  transition: transform .28s;
-  transition: transform .28s, -webkit-transform .28s;
+  transition: transform 0.28s;
   width: 280px !important;
 }
-
 #app .mobile.hideSidebar .sidebar-container {
   pointer-events: none;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transform: translate3d(-280px, 0, 0);
-          transform: translate3d(-280px, 0, 0);
+  transition-duration: 0.3s;
+  transform: translate3d(-280px, 0, 0);
 }
-
 #app .withoutAnimation .main-container,
 #app .withoutAnimation .sidebar-container {
-  -webkit-transition: none;
   transition: none;
 }
 
 .el-menu--vertical > .el-menu .svg-icon {
   margin-right: 16px;
 }
-
 .el-menu--vertical .nest-menu .el-submenu > .el-submenu__title:hover,
 .el-menu--vertical .el-menu-item:hover {
   background-color: #263445 !important;
 }
-
 .el-menu--vertical > .el-menu--popup {
   max-height: 100vh;
   overflow-y: auto;
 }
-
 .el-menu--vertical > .el-menu--popup::-webkit-scrollbar-track-piece {
   background: #d3dce6;
 }
-
 .el-menu--vertical > .el-menu--popup::-webkit-scrollbar {
   width: 6px;
 }
-
 .el-menu--vertical > .el-menu--popup::-webkit-scrollbar-thumb {
   background: #99a9bf;
   border-radius: 20px;
@@ -301,8 +242,7 @@ label {
 
 html {
   height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #app {
@@ -312,8 +252,7 @@ html {
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 a:focus,
@@ -359,5 +298,4 @@ div:focus {
   text-overflow: ellipsis;
   white-space: nowrap;
   display: block;
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
